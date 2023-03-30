@@ -18,7 +18,31 @@ namespace ExceptionHandlingExercise
             // Below we will set this up 
             // ------------------------------------------------------------------------------
 
+            var arr = new char[] { '1', '2', '3', '4', '5', '6', 'a', 'b', 'c' };
 
+            var numbers = new List<int>();
+
+            var str = string.Empty;
+
+            foreach(var item in arr)
+            {
+                int number;
+                str = char.ToString(item);
+
+                try
+                {
+                    number = int.Parse(str);
+                    numbers.Add(number);
+                }
+                catch(FormatException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    Console.WriteLine($"Unable to parse '{item}'");
+                }
+                
+                
+                
+            }
 
             //TODO START HERE:
             
@@ -39,10 +63,10 @@ namespace ExceptionHandlingExercise
                 
             
 
-            //foreach (var num in numbers)
-            //{
-            //    Console.WriteLine(num);
-            //}
+            foreach (var num in numbers)
+            {
+              Console.WriteLine(num);
+            }
         }
     }
 }
